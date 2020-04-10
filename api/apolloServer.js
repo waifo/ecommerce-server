@@ -57,7 +57,7 @@ const apolloServer = new ApolloServer({
     },
     tabs: [
       {
-        endpoint: "http://localhost:4000/api"
+        endpoint: "https://e-toy-server.herokuapp.com/api"
       }
     ]
   },
