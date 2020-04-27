@@ -1,13 +1,22 @@
+import { Vendor } from "./";
 const Product = `
     type Product{
         id:ID!
-        name:String!
+        title:String!
+        category:String
+        subCategory:String
         price:Float!
+        oldPrice:Float
         imageUrl:String!
+        description:String
+        _vendorID:Vendor
+        rating:Float
+        isOutOfStock:Boolean!
     }
 
     extend type Query{
         getAllProducts:[Product]
+        getProductsByCategory:[Product]
     }
 
 `;

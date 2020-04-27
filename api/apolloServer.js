@@ -28,40 +28,41 @@ const typeDefs = gql`
 const books = [
   {
     title: "Harry Potter and the Chamber of Secrets",
-    author: "J.K. Rowling"
+    author: "J.K. Rowling",
   },
   {
     title: "Jurassic Park",
-    author: "Michael Crichton"
-  }
+    author: "Michael Crichton",
+  },
 ];
 
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
   Query: {
-    books: () => books
-  }
+    books: () => books,
+  },
 };
 
 const apolloServer = new ApolloServer({
   schema,
   context: ({ req, res }) => {
     return {
-      req
+      req,
     };
   },
   playground: process.env.NODE_ENV !== "production" && {
     settings: {
-      "editor.theme": "light"
+      "editor.theme": "light",
     },
     tabs: [
       {
-        endpoint: "https://e-toy-server.herokuapp.com/api"
-      }
-    ]
+        endpoint: "https://e-toy-server.herokuapp.com/api",
+        // endpoint: "http://localhost:4000/api",
+      },
+    ],
   },
-  introspection: process.env.NODE_ENV !== "production"
+  introspection: process.env.NODE_ENV !== "production",
 });
 
 export default apolloServer;

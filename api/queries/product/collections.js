@@ -1,6 +1,6 @@
 import {
   getAllCollections,
-  getCollectionByTitle
+  getCollectionByTitle,
 } from "../../../shared/db/queries/product";
 
 export const collections = (_, __, { db }) => getAllCollections(db)();

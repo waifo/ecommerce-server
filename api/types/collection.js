@@ -2,7 +2,8 @@ const Collection = `
     type Collection{
         id:ID!
         title:String!
-        items:[Product]
+        subCategory:[String]
+        imageUrl:String
     }
 
     extend type Query{

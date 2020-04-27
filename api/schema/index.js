@@ -1,11 +1,11 @@
 import Debug from "debug";
 import {
   makeExecutableSchema,
-  addSchemaLevelResolveFunction
+  addSchemaLevelResolveFunction,
 } from "graphql-tools";
 import { merge } from "lodash";
 
-import { User, Product, Collection } from "../types";
+import { User, Product, Collection, Vendor } from "../types";
 import UserQueries from "../queries/user";
 import ProductQueries from "../queries/product";
 
@@ -30,8 +30,8 @@ schema{
 const resolvers = merge({}, UserQueries, ProductQueries);
 
 const schema = makeExecutableSchema({
-  typeDefs: [ROOT, User, Product, Collection],
-  resolvers
+  typeDefs: [ROOT, User, Product, Collection, Vendor],
+  resolvers,
 });
 
 export default schema;

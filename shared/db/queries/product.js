@@ -1,33 +1,28 @@
 import { createReadQuery } from "../create-query";
 
-export const getAllProducts = db =>
+export const getAllProducts = (db) =>
   createReadQuery(() => ({
     query: db
       .collection("products")
       .find({})
       .toArray()
-      .then(res =>
-        res.reduce(
-          (combinedArray, product) => combinedArray.concat(product["items"]),
-          []
-        )
-      )
+      .then((res) => res),
   }));
 
-export const getAllCollections = db =>
+export const getAllCollections = (db) =>
   createReadQuery(() => ({
     query: db
-      .collection("products")
+      .collection("categories")
       .find({})
       .toArray()
-      .then(res => res)
+      .then((res) => res),
   }));
 
-export const getCollectionByTitle = (title, db) =>
+export const getProductsByCategory = (category, db) =>
   createReadQuery(() => ({
     query: db
       .collection("products")
-      .find({ routeName: title })
+      .find({ category: category })
       .toArray()
-      .then(res => res[0])
+      .then((res) => res[0]),
   }));
