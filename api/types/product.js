@@ -1,7 +1,7 @@
 import { Vendor } from "./";
 const Product = `
     type Product{
-        id:ID!
+        _id:ID!
         title:String!
         category:String
         subCategory:String

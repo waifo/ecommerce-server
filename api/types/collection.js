@@ -1,6 +1,6 @@
 const Collection = `
     type Collection{
-        id:ID!
+        _id:ID!
         title:String!
         subCategory:[String]
         imageUrl:String

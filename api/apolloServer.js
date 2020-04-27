@@ -57,8 +57,10 @@ const apolloServer = new ApolloServer({
     },
     tabs: [
       {
-        endpoint: "https://e-toy-server.herokuapp.com/api",
-        // endpoint: "http://localhost:4000/api",
+        endpoint:
+          process.env.NODE_ENV === "production"
+            ? "https://e-toy-server.herokuapp.com/api"
+            : "http://localhost:4000/api",
       },
     ],
   },
